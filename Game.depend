@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1709921854 source:d:\learning_sdl\game\main.cpp
+	"init.h"
+	<iostream>
+
+1709921375 source:d:\learning_sdl\game\init.cpp
+	"init.h"
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+
+1709921333 d:\learning_sdl\game\init.h
+	<SDL.h>
+
