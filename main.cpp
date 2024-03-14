@@ -1,12 +1,10 @@
-#include "init.h"
 #include <iostream>
-using namespace std;
+#include "init.h"
 
-int main(int argc, char* args[]){
+int main(int argc, char* argv[]){
     init();
     loadMedia();
-
     showUntilQuit();
-    close();
+
     return 0;
 }
