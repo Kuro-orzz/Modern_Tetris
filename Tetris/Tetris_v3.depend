@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1711187861 source:d:\learning_sdl\tetris_v3\block.cpp
+	"block.h"
+
+1711681397 d:\learning_sdl\tetris_v3\block.h
+	<SDL.h>
+	<SDL_image.h>
+	"init.h"
+	"board.h"
+
+1711680788 d:\learning_sdl\tetris_v3\init.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+
+1711188206 d:\learning_sdl\tetris_v3\board.h
+	<SDL.h>
+	<SDL_image.h>
+	"init.h"
+
+1711680905 source:d:\learning_sdl\tetris_v3\board.cpp
+	"board.h"
+
+1711680788 source:d:\learning_sdl\tetris_v3\init.cpp
+	"init.h"
+
+1711681413 source:d:\learning_sdl\tetris_v3\main.cpp
+	"init.h"
+	"board.h"
+	"block.h"
+	"piece.h"
+	"rotation.h"
+
+1711679061 d:\learning_sdl\tetris_v3\piece.h
+	<SDL.h>
+	<vector>
+	<iostream>
+
+1711678855 source:d:\learning_sdl\tetris_v3\piece.cpp
+	"piece.h"
+
+1711117646 source:d:\learning_sdl\tetris_v3\rotate.cpp
+
+1711679841 d:\learning_sdl\tetris_v3\rotation.h
+	"piece.h"
+
+1711679841 source:d:\learning_sdl\tetris_v3\rotation.cpp
+	"rotation.h"
+
