@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <vector>
 #include "init.h"
 #include "board.h"
 
@@ -17,8 +18,17 @@ class Block{
         SDL_Texture* getTexture();
 //        void loadTexture(SDL_Renderer* render);
         SDL_Texture* getBlockTexture();
-        SDL_Rect get_Block_clips(char shape);
+        SDL_Rect get_Block_clips(int num_shape);
 };
 
+struct shape {
+     SDL_Color color;
+     std::vector<std::vector<int>> matrix;
+     double x, y;
+     int size;
+     shape operator=(const shape& s);
+};
+
+void make_block(shape blocks[]);
 
 #endif // BLOCK_H

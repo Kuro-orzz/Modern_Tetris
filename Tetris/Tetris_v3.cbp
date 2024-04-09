@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Game.cpp" />
+		<Unit filename="Game.h" />
 		<Unit filename="SDL2.dll" />
 		<Unit filename="SDL2_image.dll" />
 		<Unit filename="SDL2_mixer.dll" />
@@ -41,13 +43,15 @@
 		<Unit filename="block.h" />
 		<Unit filename="board.cpp" />
 		<Unit filename="board.h" />
+		<Unit filename="collision.cpp" />
+		<Unit filename="collision.h" />
+		<Unit filename="gVar.cpp" />
+		<Unit filename="gVar.h" />
 		<Unit filename="init.cpp" />
 		<Unit filename="init.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="piece.cpp" />
-		<Unit filename="piece.h" />
-		<Unit filename="rotate.cpp" />
-		<Unit filename="rotate.h" />
+		<Unit filename="rotation.cpp" />
+		<Unit filename="rotation.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
