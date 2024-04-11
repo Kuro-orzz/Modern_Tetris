@@ -18,6 +18,7 @@ shape transpose(shape s);
 void rotate_left();
 void rotate_right();
 void rotate_180();
+int hardDrop(std::vector<std::pair<int, int>> &pre);
 void check_move();
 
 void drawPiece(shape s);

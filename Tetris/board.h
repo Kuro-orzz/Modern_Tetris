@@ -5,7 +5,8 @@
 #include <SDL_image.h>
 #include <vector>
 #include <utility>
-#include <map>
+//#include <map>
+#include "line.h"
 #include "init.h"
 #include "gVar.h"
 
@@ -40,6 +41,6 @@ bool check_collision_left(std::vector<std::pair<int, int>> &pre);
 bool check_collision_right(std::vector<std::pair<int, int>> &pre);
 int matrix_board_value(int x, int y);
 void display_block(const shape blocks[]);
-void hardDrop(std::vector<std::pair<int, int>> &pre);
+void change_board(int x, int y, int num);
 
 #endif // INIT_H

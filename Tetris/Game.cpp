@@ -47,6 +47,27 @@ void rotate_180(){
         cur = reverse_shape(transpose(cur));
 }
 
+int hardDrop(std::vector<std::pair<int, int>> &pre){
+    int stop = 100;
+    std::vector<int> col(10, -2);
+    for(int i = 0; i < pre.size(); i++){
+        int x = (pre[i].second-100)/35;
+        int y = (pre[i].first-275)/35;
+        col[y] = std::max(col[y], x);
+    }
+    for(int i = 0; i < 10; i++){
+        if(col[i] != -2){
+            int tmp = 0;
+            while(col[i] < 19 && matrix_board_value(col[i]+1, i) == 0){
+                col[i]++;
+                tmp++;
+            }
+            stop = std::min(stop, tmp);
+        }
+    }
+    return stop;
+}
+
 void update() {
     // arrow
     if(left && check_collision_left(prePos)) cur.x--;
@@ -59,10 +80,7 @@ void update() {
     //rotate 180
     if(a && Can_Rotate_180(cur)) rotate_180();
     // hard drop
-//    if(hard_drop){
-//        while(hardDrop(prePos))
-//            cur.y++;
-//    }
+    if(hard_drop) cur.y += hardDrop(prePos);
 }
 
 void check_move(){
@@ -124,6 +142,7 @@ void renderPiece() {
         SDL_Delay((1000/60)-timerFPS);
     }
     drawPiece(cur);
+    line_clear();
     display_block(blocks);
 }
 

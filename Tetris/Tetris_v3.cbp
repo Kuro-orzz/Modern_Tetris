@@ -49,6 +49,8 @@
 		<Unit filename="gVar.h" />
 		<Unit filename="init.cpp" />
 		<Unit filename="init.h" />
+		<Unit filename="line.cpp" />
+		<Unit filename="line.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rotation.cpp" />
 		<Unit filename="rotation.h" />

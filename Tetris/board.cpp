@@ -47,7 +47,6 @@ bool check_collision_left(std::vector<std::pair<int, int>> &pre){
         int y = (pre[i].first-275)/35;
         if(y == 0 || matrix_board[x][y-1] > 0)
             return false;
-
     }
     return true;
 }
@@ -87,6 +86,6 @@ void display_block(const shape blocks[]){
         }
 }
 
-void hardDrop(std::vector<std::pair<int, int>> &pre){
-
+void change_board(int x, int y, int num){
+    matrix_board[x][y] = num;
 }
