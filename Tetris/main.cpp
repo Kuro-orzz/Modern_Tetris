@@ -6,39 +6,17 @@
 int main(int argc, char* argv[]){
     init();
     srand(time(NULL));
-//    Block T;
-//    //    T.loadTexture(getRenderer());
-//
-//    shape blocks[7];
-//    make_block(blocks);
-//
-//
-//    SDL_Event e; bool quit = false;
-//    while(!quit){
-//        while(SDL_PollEvent(&e) != 0){
-//            if(e.type == SDL_QUIT)
-//                quit = true;
-////            drawBoard();
-//            loadBoard();
-//            showBoard();
-//            SDL_SetRenderDrawColor(getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
-//
-//            for(int i = 1; i <= 10; i++)
-//                T.render(276+35*i, 81+35, T.get_Block_clips('Z'));
-//
-//            SDL_RenderPresent(getRenderer());
-//        }
-//    }
     initBlock();
-    loadBoard();
 
-    while(true){
-//        loadBoard();
-//        showBoard();
-//        SDL_RenderPresent(getRenderer());
+    while(!Game_over){
         runGame();
+        for(int i = 0; i < 10; i++)
+            if(matrix_board_value(0, i) > 0){
+                Game_over = true;
+                break;
+            }
     }
-
+    std::cout << "Game over";
     close();
 
     return 0;

@@ -1,33 +1,34 @@
 # depslib dependency file v1.0
-1712681501 source:d:\learning_sdl\tetris_v3\block.cpp
+1712805578 source:d:\learning_sdl\tetris_v3\block.cpp
 	"block.h"
 
-1712687739 d:\learning_sdl\tetris_v3\block.h
+1712805913 d:\learning_sdl\tetris_v3\block.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
 	"init.h"
-	"board.h"
 
 1712331662 d:\learning_sdl\tetris_v3\init.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
 
-1712687370 d:\learning_sdl\tetris_v3\board.h
+1712845241 d:\learning_sdl\tetris_v3\board.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
 	<utility>
+	<map>
 	"init.h"
+	"gVar.h"
 
-1712687370 source:d:\learning_sdl\tetris_v3\board.cpp
+1712845241 source:d:\learning_sdl\tetris_v3\board.cpp
 	"board.h"
 
-1712335718 source:d:\learning_sdl\tetris_v3\init.cpp
+1712766429 source:d:\learning_sdl\tetris_v3\init.cpp
 	"init.h"
 
-1712680635 source:d:\learning_sdl\tetris_v3\main.cpp
+1712845749 source:d:\learning_sdl\tetris_v3\main.cpp
 	"Game.h"
 	"gVar.h"
 	<iostream>
@@ -40,26 +41,34 @@
 
 1711117646 source:d:\learning_sdl\tetris_v3\rotate.cpp
 
-1712376377 d:\learning_sdl\tetris_v3\rotation.h
+1712834752 d:\learning_sdl\tetris_v3\rotation.h
+	"block.h"
+	"Game.h"
+	"gVar.h"
 
-1712376377 source:d:\learning_sdl\tetris_v3\rotation.cpp
+1712837014 source:d:\learning_sdl\tetris_v3\rotation.cpp
+	"rotation.h"
 
-1712687370 source:d:\learning_sdl\tetris_v3\game.cpp
+1712845740 source:d:\learning_sdl\tetris_v3\game.cpp
 	"Game.h"
 
-1712685625 d:\learning_sdl\tetris_v3\game.h
+1712805913 d:\learning_sdl\tetris_v3\game.h
 	<SDL.h>
 	<vector>
 	<utility>
-	"block.h"
 	"board.h"
 	"init.h"
 	"gVar.h"
+	"rotation.h"
+	"collision.h"
 
-1712373978 source:d:\learning_sdl\tetris_v3\gvar.cpp
+1712808112 source:d:\learning_sdl\tetris_v3\gvar.cpp
+	"gVar.h"
 
-1712687415 d:\learning_sdl\tetris_v3\gvar.h
+1712808159 d:\learning_sdl\tetris_v3\gvar.h
 	"block.h"
 
-1712482335 source:d:\learning_sdl\tetris_v3\collision.cpp
+1712765150 source:d:\learning_sdl\tetris_v3\collision.cpp
+
+1712765150 d:\learning_sdl\tetris_v3\collision.h
 

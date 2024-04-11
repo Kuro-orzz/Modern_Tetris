@@ -5,21 +5,6 @@
 #include <SDL_image.h>
 #include <vector>
 #include "init.h"
-#include "board.h"
-
-class Block{
-    private:
-        SDL_Texture* mTexture;
-    public:
-        Block();
-        ~Block();
-        void free();
-        void render(int x, int y, SDL_Rect clip);
-        SDL_Texture* getTexture();
-//        void loadTexture(SDL_Renderer* render);
-        SDL_Texture* getBlockTexture();
-        SDL_Rect get_Block_clips(int num_shape);
-};
 
 struct shape {
      SDL_Color color;

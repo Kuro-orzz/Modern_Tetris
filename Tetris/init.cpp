@@ -19,11 +19,11 @@ void waitUntilKeyPressed(){
 
 void close(){
     SDL_DestroyRenderer(gRenderer);
-    gRenderer = NULL;
+//    gRenderer = NULL;
     SDL_DestroyWindow(gWindow);
-    gWindow = NULL;
+//    gWindow = NULL;
     SDL_Quit();
-    IMG_Quit();
+//    IMG_Quit();
 }
 
 SDL_Renderer* getRenderer(){

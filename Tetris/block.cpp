@@ -1,53 +1,5 @@
 #include "block.h"
 
-const int NUMBER_OF_BLOCK = 7;
-
-Block::Block(){
-//    mTexture = NULL;
-    mTexture = IMG_LoadTexture(getRenderer(), "img_src/block.png");
-}
-
-Block::~Block(){
-    free();
-}
-
-void Block::free(){
-    if(mTexture){
-        SDL_DestroyTexture(mTexture);
-        mTexture = NULL;
-    }
-}
-
-void Block::render(int x, int y, SDL_Rect clip){
-    SDL_Rect pos = {x, y, 35, 35};
-	SDL_RenderCopy(getRenderer(), mTexture, &clip, &pos);
-}
-
-SDL_Texture* Block::getBlockTexture(){
-    return this->mTexture;
-}
-
-SDL_Rect Block::get_Block_clips(int num_shape){
-    SDL_Rect Block_clips[7];
-    Block_clips[0] = {31, 0, 31, 31};   // L ORANGE
-    Block_clips[1] = {0, 0, 31, 31};    // Z RED
-    Block_clips[2] = {124, 0, 31, 31};  // I LIGHT BLUE
-    Block_clips[3] = {155, 0, 31, 31};  // J  BLUE
-    Block_clips[4] = {62, 0, 31, 31};   // O YELLOW
-    Block_clips[5] = {93, 0, 31, 31};   // S GREEN
-    Block_clips[6] = {186, 0, 31, 31};  // T PURPLE
-    switch(num_shape){
-        case 0: return Block_clips[0];
-        case 1: return Block_clips[1];
-        case 2: return Block_clips[2];
-        case 3: return Block_clips[3];
-        case 4: return Block_clips[4];
-        case 5: return Block_clips[5];
-        case 6: return Block_clips[6];
-    }
-    return {0, 0, 0, 0};
-}
-
 shape shape::operator=(const shape& s){
     this->color = s.color;
     this->matrix = s.matrix;

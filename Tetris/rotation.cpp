@@ -1,83 +1,72 @@
-//#include "rotation.h"
+#include "rotation.h"
 
-//bool left, right, up, down, z, a;
-//
-//shape reverseCols(shape s){
-//    shape tmp = s;
-//    for(int i = 0; i < s.size; i++){
-//        for(int j=0; j < s.size/2; j++){
-//            bool t = s.matrix[i][j];
-//            tmp.matrix[i][j] = s.matrix[i][s.size-j-1];
-//            tmp.matrix[i][s.size-j-1] = t;
-//        }
-//    }
-//    return tmp;
-//}
-//
-//shape transpose(shape s){
-//    shape tmp = s;
-//    for(int i=0; i<s.size; i++) {
-//        for(int j=0; j<s.size; j++) {
-//            tmp.matrix[i][j] = s.matrix[j][i];
-//        }
-//    }
-//    return tmp;
-//}
-//
-//void rotate_left(){
-//    cur = reverseCols(transpose(cur));
-//}
-//
-//void rotate_right(){
-//    for(int i = 0; i < 3; i++)
-//        cur = reverseCols(transpose(cur));
-//}
-//
-//void rotate_180(){
-//    for(int i = 0; i < 2; i++)
-//        cur = reverseCols(transpose(cur));
-//}
-//
-//void update() {
-//    if(left) cur.x--;
-//    if(right) cur.x++;
-//    if(down) cur.y++;
-//    if(up) rotate_right();
-//    if(z) rotate_left();
-//    if(a) rotate_180();
-//}
-//
-//void check_move(){
-//    up=down=left=right=z=a=0;
-//    SDL_Event e;
-//    while(SDL_PollEvent(&e)) {
-//        if(e.type == SDL_QUIT) running=false;
-//        switch( e.type ){
-//            case SDL_KEYUP: //DOWN
-//                switch(e.key.keysym.sym) {
-//                    case SDLK_LEFT:
-//                        left=1;
-//                        break;
-//                    case SDLK_RIGHT:
-//                        right=1;
-//                        break;
-//                    case SDLK_UP:
-//                        up=1;
-//                        break;
-//                    case SDLK_DOWN:
-//                        down=1;
-//                        break;
-//                    case SDLK_z:
-//                        z = 1;
-//                        break;
-//                    case SDLK_a:
-//                        a = 1;
-//                        break;
-//                    case SDLK_ESCAPE:
-//                        running=false;
-//                        break;
-//                }
-//            update();
-//        }
-//    }
-//}
+bool Can_Rotate_Right(shape cur){
+    next = cur;
+    for(int i = 0; i < 3; i++)
+        next = reverse_shape(transpose(next));
+    SDL_Rect pos;
+    for(int i = 0; i < next.size; i++){
+        for(int j = 0; j < next.size; j++){
+            if(next.matrix[i][j]){
+                pos.x = 100 + (next.x + i + 4)*35;
+                pos.y = 100 + (next.y + j - 5)*35;
+                int x = (pos.y-100)/35;
+                int y = (pos.x-275)/35;
+                if(y < 0 || y > 9)
+                    return false;
+                if(x > 19)
+                    return false;
+                if(matrix_board_value(x, y) > 0)
+                    return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool Can_Rotate_Left(shape cur){
+    next = cur;
+    next = reverse_shape(transpose(next));
+    SDL_Rect pos;
+    for(int i = 0; i < next.size; i++){
+        for(int j = 0; j < next.size; j++){
+            if(next.matrix[i][j]){
+                pos.x = 100 + (next.x + i + 4)*35;
+                pos.y = 100 + (next.y + j - 5)*35;
+                int x = (pos.y-100)/35;
+                int y = (pos.x-275)/35;
+                if(y < 0 || y > 9)
+                    return false;
+                if(x > 19)
+                    return false;
+                if(matrix_board_value(x, y) > 0)
+                    return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool Can_Rotate_180(shape cur){
+    next = cur;
+    for(int i = 0; i < 2; i++)
+        next = reverse_shape(transpose(next));
+    SDL_Rect pos;
+    for(int i = 0; i < next.size; i++){
+        for(int j = 0; j < next.size; j++){
+            if(next.matrix[i][j]){
+                pos.x = 100 + (next.x + i + 4)*35;
+                pos.y = 100 + (next.y + j - 5)*35;
+                int x = (pos.y-100)/35;
+                int y = (pos.x-275)/35;
+                if(y < 0 || y > 9)
+                    return false;
+                if(x > 19)
+                    return false;
+                if(matrix_board_value(x, y) > 0)
+                    return false;
+            }
+        }
+    }
+    return true;
+}
