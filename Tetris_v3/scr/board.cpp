@@ -1,13 +1,18 @@
 #include "board.h"
 
 void drawBoard(){
-    SDL_SetRenderDrawColor(getRenderer(), 0xFF, 0xFF, 0xFF, 55);
+
+//    SDL_RenderCopy( getRenderer(), getTexture(), NULL, NULL);
+
+//    SDL_RenderPresent( getRenderer() );
+    SDL_SetRenderDrawColor(getRenderer(), 46, 46, 46, 255);
     // Column
     for(int i = 0; i < 11; i++)
         SDL_RenderDrawLine(getRenderer(), 275+35*i, 100, 275+35*i, 800);
     // Row
     for(int i = 0; i < 21; i++)
         SDL_RenderDrawLine(getRenderer(), 275, 100+35*i, 275+350, 100+35*i);
+    SDL_SetRenderDrawColor(getRenderer(), 255, 255, 255, 255);
     // make edge column
     for(int i = 0; i < 4; i++)
         SDL_RenderDrawLine(getRenderer(), 275-i, 100, 275-i, 800);

@@ -8,7 +8,7 @@
 	<vector>
 	"init.h"
 
-1712331662 d:\learning_sdl\tetris_v3\init.h
+1713108495 d:\learning_sdl\tetris_v3\init.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -22,16 +22,18 @@
 	"init.h"
 	"gVar.h"
 
-1713093252 source:d:\learning_sdl\tetris_v3\board.cpp
+1713108495 source:d:\learning_sdl\tetris_v3\board.cpp
 	"board.h"
 
-1712766429 source:d:\learning_sdl\tetris_v3\init.cpp
+1713108495 source:d:\learning_sdl\tetris_v3\init.cpp
 	"init.h"
 
-1712993841 source:d:\learning_sdl\tetris_v3\main.cpp
+1713112651 source:d:\learning_sdl\tetris_v3\main.cpp
 	"Game.h"
 	"gVar.h"
 	<iostream>
+	<SDL.h>
+	<SDL_image.h>
 	<ctime>
 
 1712374375 d:\learning_sdl\tetris_v3\piece.h
@@ -49,10 +51,10 @@
 1712837014 source:d:\learning_sdl\tetris_v3\rotation.cpp
 	"rotation.h"
 
-1713092802 source:d:\learning_sdl\tetris_v3\game.cpp
+1713112618 source:d:\learning_sdl\tetris_v3\game.cpp
 	"Game.h"
 
-1712991698 d:\learning_sdl\tetris_v3\game.h
+1713094608 d:\learning_sdl\tetris_v3\game.h
 	<SDL.h>
 	<vector>
 	<utility>
@@ -66,7 +68,7 @@
 1712891730 source:d:\learning_sdl\tetris_v3\gvar.cpp
 	"gVar.h"
 
-1713092639 d:\learning_sdl\tetris_v3\gvar.h
+1713112844 d:\learning_sdl\tetris_v3\gvar.h
 	<set>
 	"block.h"
 
@@ -74,11 +76,89 @@
 
 1712765150 d:\learning_sdl\tetris_v3\collision.h
 
-1712891757 source:d:\learning_sdl\tetris_v3\line.cpp
+1713110757 source:d:\learning_sdl\tetris_v3\line.cpp
 	"line.h"
 
-1712891731 d:\learning_sdl\tetris_v3\line.h
+1713110725 d:\learning_sdl\tetris_v3\line.h
 	<algorithm>
 	"board.h"
 	"gVar.h"
+
+1713374179 source:d:\learning_sdl\tetris_v3\scr\block.cpp
+	"block.h"
+
+1713367442 d:\learning_sdl\tetris_v3\scr\block.h
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	"init.h"
+
+1713187487 d:\learning_sdl\tetris_v3\scr\init.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+
+1712765150 source:d:\learning_sdl\tetris_v3\scr\collision.cpp
+
+1712891730 source:d:\learning_sdl\tetris_v3\scr\gvar.cpp
+	"gVar.h"
+
+1713371359 d:\learning_sdl\tetris_v3\scr\gvar.h
+	<set>
+	"block.h"
+
+1713110757 source:d:\learning_sdl\tetris_v3\scr\line.cpp
+	"line.h"
+
+1713110725 d:\learning_sdl\tetris_v3\scr\line.h
+	<algorithm>
+	"board.h"
+	"gVar.h"
+
+1712854543 d:\learning_sdl\tetris_v3\scr\board.h
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	<utility>
+	"line.h"
+	"init.h"
+	"gVar.h"
+
+1713374286 source:d:\learning_sdl\tetris_v3\scr\main.cpp
+	"Game.h"
+	"gVar.h"
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<ctime>
+
+1713366203 d:\learning_sdl\tetris_v3\scr\game.h
+	<SDL.h>
+	<vector>
+	<utility>
+	<set>
+	"board.h"
+	"init.h"
+	"gVar.h"
+	"rotation.h"
+	"collision.h"
+
+1712834752 d:\learning_sdl\tetris_v3\scr\rotation.h
+	"block.h"
+	"Game.h"
+	"gVar.h"
+
+1712765150 d:\learning_sdl\tetris_v3\scr\collision.h
+
+1712837014 source:d:\learning_sdl\tetris_v3\scr\rotation.cpp
+	"rotation.h"
+
+1713375143 source:d:\learning_sdl\tetris_v3\scr\game.cpp
+	"Game.h"
+
+1713187487 source:d:\learning_sdl\tetris_v3\scr\init.cpp
+	"init.h"
+
+1713187487 source:d:\learning_sdl\tetris_v3\scr\board.cpp
+	"board.h"
 

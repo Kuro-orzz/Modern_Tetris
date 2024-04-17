@@ -31,29 +31,37 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Game.cpp" />
-		<Unit filename="Game.h" />
 		<Unit filename="SDL2.dll" />
 		<Unit filename="SDL2_image.dll" />
 		<Unit filename="SDL2_mixer.dll" />
 		<Unit filename="SDL2_ttf.dll" />
 		<Unit filename="Tetris_v3.cbp" />
+		<Unit filename="Tetris_v3.cscope_file_list" />
+		<Unit filename="Tetris_v3.depend" />
+		<Unit filename="Tetris_v3.exe" />
 		<Unit filename="Tetris_v3.layout" />
-		<Unit filename="block.cpp" />
-		<Unit filename="block.h" />
-		<Unit filename="board.cpp" />
-		<Unit filename="board.h" />
-		<Unit filename="collision.cpp" />
-		<Unit filename="collision.h" />
-		<Unit filename="gVar.cpp" />
-		<Unit filename="gVar.h" />
-		<Unit filename="init.cpp" />
-		<Unit filename="init.h" />
-		<Unit filename="line.cpp" />
-		<Unit filename="line.h" />
-		<Unit filename="main.cpp" />
-		<Unit filename="rotation.cpp" />
-		<Unit filename="rotation.h" />
+		<Unit filename="libgcc_s_seh-1.dll" />
+		<Unit filename="libstdc++-6.dll" />
+		<Unit filename="libwinpthread-1.dll" />
+		<Unit filename="scr/Elaina.jpg" />
+		<Unit filename="scr/Game.cpp" />
+		<Unit filename="scr/Game.h" />
+		<Unit filename="scr/arial.ttf" />
+		<Unit filename="scr/block.cpp" />
+		<Unit filename="scr/block.h" />
+		<Unit filename="scr/board.cpp" />
+		<Unit filename="scr/board.h" />
+		<Unit filename="scr/collision.cpp" />
+		<Unit filename="scr/collision.h" />
+		<Unit filename="scr/gVar.cpp" />
+		<Unit filename="scr/gVar.h" />
+		<Unit filename="scr/init.cpp" />
+		<Unit filename="scr/init.h" />
+		<Unit filename="scr/line.cpp" />
+		<Unit filename="scr/line.h" />
+		<Unit filename="scr/main.cpp" />
+		<Unit filename="scr/rotation.cpp" />
+		<Unit filename="scr/rotation.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

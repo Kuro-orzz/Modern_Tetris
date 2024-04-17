@@ -1,6 +1,6 @@
 #include "line.h"
 
-void line_clear(){
+int line_clear(){
     std::vector<int> row;
 
     for(int i = 0; i < 20; i++){
@@ -12,7 +12,7 @@ void line_clear(){
         if(check)
             row.push_back(i);
     }
-
+//    std::cout << cleared_line << '\n';
 //    std::cout << "\033[2J\033[1;1H";
 //    for(int i = 0; i < 20; i++){
 //        for(int j = 0; j < 10; j++)
@@ -29,6 +29,7 @@ void line_clear(){
             }
         }
     }
+    return row.size();
 }
 
 void cur_score(){

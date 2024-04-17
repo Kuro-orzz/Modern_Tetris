@@ -5,7 +5,7 @@
 #include "board.h"
 #include "gVar.h"
 
-void line_clear();
+int line_clear();
 void cur_score();
 
 #endif // LINE_H

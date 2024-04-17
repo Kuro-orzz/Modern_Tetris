@@ -9,7 +9,7 @@
 struct shape {
      SDL_Color color;
      std::vector<std::vector<int>> matrix;
-     double x, y;
+     int x, y;
      int size;
      shape();
      ~shape();

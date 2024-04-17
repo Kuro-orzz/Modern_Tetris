@@ -19,7 +19,7 @@ shape shape::operator=(const shape& s){
 
 void make_block(shape blocks[]){
     // L Block
-    blocks[0].color = {237, 133, 1};
+    blocks[0].color = {4, 24, 208};
     blocks[0].matrix = {{0,0,1,0},
                         {1,1,1,0},
                         {0,0,0,0},
@@ -43,7 +43,7 @@ void make_block(shape blocks[]){
     blocks[2].x = 5; blocks[2].y = 4;
     blocks[2].size = 4;
     // J BLOCK
-    blocks[3].color = {4, 24, 208};
+    blocks[3].color = {237, 133, 1};
     blocks[3].matrix = {{1,0,0,0},
                         {1,1,1,0},
                         {0,0,0,0},

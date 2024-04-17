@@ -13,5 +13,6 @@ void waitUntilKeyPressed();
 void close();
 SDL_Renderer* getRenderer();
 SDL_Window* getWindow();
+//SDL_Texture* getTexture();
 
 #endif // INIT_H
