@@ -7,7 +7,7 @@
 
 class Menu{
 private:
-    SDL_Texture* texture;
+    SDL_Texture* menu;
 public:
     Menu();
     ~Menu();

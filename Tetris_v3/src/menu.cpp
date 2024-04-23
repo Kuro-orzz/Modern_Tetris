@@ -1,19 +1,19 @@
 #include "menu.h"
 
 Menu::Menu(){
-    texture = NULL;
+    menu = NULL;
 }
 
 Menu::~Menu(){
-
+    SDL_DestroyTexture(menu);
 }
 
 void Menu::loadMenu(){
-    texture = IMG_LoadTexture(getRenderer(), "img_src/menu.png");
+    menu = IMG_LoadTexture(getRenderer(), "img_src/menu.png");
 }
 
 void Menu::showMenu(){
     loadMenu();
-    SDL_RenderCopy(getRenderer(), texture, NULL, NULL);
+    SDL_RenderCopy(getRenderer(), menu, NULL, NULL);
     SDL_RenderPresent(getRenderer());
 }

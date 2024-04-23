@@ -30,5 +30,6 @@ void check_move();
 void drawPiece(shape s);
 void renderPiece();
 void runGame();
+bool get_status();
 
 #endif // GAME_H

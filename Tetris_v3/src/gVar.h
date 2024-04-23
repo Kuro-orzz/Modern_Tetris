@@ -22,6 +22,5 @@ static std::set<int> seven_bag_system;
 static std::vector<int> next_piece;
 static int lv = 0;
 static int speed[5] = {100, 80, 60, 40, 20};
-//shape getBlock(int num);
 
 #endif // GVAR_H

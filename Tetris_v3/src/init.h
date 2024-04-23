@@ -11,6 +11,7 @@ const int SCR_H = 900;
 //SDL_Texture* background = NULL;
 
 void init();
+void loadText(std::string s, SDL_Color color, SDL_Rect Text_pos);
 void waitUntilKeyPressed();
 void close();
 SDL_Renderer* getRenderer();

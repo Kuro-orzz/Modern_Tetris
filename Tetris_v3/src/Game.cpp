@@ -5,7 +5,7 @@ int num_piece = -1;
 SDL_Rect rect;
 std::vector<std::pair<int, int>> prePos;
 //std::set<int> seven_bag_system;
-bool left, right, up, down, z, x, a, hard_drop, c;
+bool left, right, up, down, z, x, a, hard_drop, c, quit_game = false;
 int drop = 0;
 bool used_hold = false;
 
@@ -228,9 +228,10 @@ void update() {
 
 void check_move(){
     up = down = left = right = z = x = a = hard_drop = c = 0;
+    quit_game = false;
     SDL_Event e;
     while(SDL_PollEvent(&e)) {
-        if(e.type == SDL_QUIT){ running = false; Game_over = true;}
+        if(e.type == SDL_QUIT){running = false; quit_game = true; return;}
         switch( e.type ){
             case SDL_KEYDOWN:
                 switch(e.key.keysym.sym) {
@@ -332,4 +333,8 @@ void runGame(){
 //        if(c) return;
         renderPiece();
     }
+}
+
+bool get_status(){
+    return quit_game;
 }

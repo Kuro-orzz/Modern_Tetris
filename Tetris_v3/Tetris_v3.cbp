@@ -40,6 +40,7 @@
 		<Unit filename="Tetris_v3.depend" />
 		<Unit filename="Tetris_v3.exe" />
 		<Unit filename="Tetris_v3.layout" />
+		<Unit filename="arial.ttf" />
 		<Unit filename="img_src/Elaina.bmp" />
 		<Unit filename="img_src/Elaina.jpg" />
 		<Unit filename="img_src/background.jpg" />

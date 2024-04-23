@@ -4,14 +4,18 @@ SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 TTF_Font* gFont = NULL;
 SDL_Texture* background = NULL;
+SDL_Texture* mText = NULL;
 
 void init(){
     gWindow = SDL_CreateWindow("Tetris", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCR_W, SCR_H, SDL_WINDOW_SHOWN);
     gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
-    gFont = TTF_OpenFont( "lazy.ttf", 28 );
+
+    TTF_Init();
+
+    gFont = TTF_OpenFont("Font/VNI-Disney.ttf", 500);
+
     SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
     background = IMG_LoadTexture(getRenderer(), "img_src/background0.jpg");
-    SDL_SetTextureAlphaMod(background, 0);
 
 //    SDL_RenderCopy( gRenderer, background, NULL, NULL);
 //
@@ -20,6 +24,15 @@ void init(){
 //    SDL_RenderClear(gRenderer);
 
 
+}
+
+void loadText(std::string s, SDL_Color color, SDL_Rect Text_pos){
+    SDL_Surface* text = TTF_RenderText_Solid(gFont, s.c_str(), color);
+    mText = SDL_CreateTextureFromSurface(gRenderer, text);
+
+    SDL_RenderCopy(gRenderer, mText, NULL, &Text_pos);
+
+    SDL_FreeSurface(text);
 }
 
 void waitUntilKeyPressed(){
@@ -32,11 +45,14 @@ void waitUntilKeyPressed(){
 
 void close(){
     SDL_DestroyRenderer(gRenderer);
-//    gRenderer = NULL;
+    gRenderer = NULL;
     SDL_DestroyWindow(gWindow);
-//    gWindow = NULL;
+    gWindow = NULL;
+    TTF_CloseFont( gFont );
+	gFont = NULL;
     SDL_Quit();
-//    IMG_Quit();
+	IMG_Quit();
+	TTF_Quit();
 }
 
 SDL_Renderer* getRenderer(){

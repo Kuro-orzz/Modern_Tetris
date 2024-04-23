@@ -6,6 +6,6 @@
 #include "gVar.h"
 
 int line_clear();
-void cur_score();
+int cur_score(int inc);
 
 #endif // LINE_H
