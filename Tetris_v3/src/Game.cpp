@@ -1,6 +1,6 @@
 #include "Game.h"
 
-int frameCount, timerFPS, lastFrame, fps;
+int timerFPS, currentTime, lastTime, delta;
 int num_piece = -1;
 SDL_Rect rect;
 std::vector<std::pair<int, int>> prePos;
@@ -21,7 +21,6 @@ int random_piece(){
                 tmp = rand() % 7;
             seven_bag_system.insert(tmp);
             next_piece.push_back(tmp);
-//            std::cout << tmp << std::endl;
         }
         num_piece = next_piece.back();
         next_piece.pop_back();
@@ -36,17 +35,7 @@ int random_piece(){
             tmp = rand() % 7;
         seven_bag_system.insert(tmp);
         next_piece.insert(next_piece.begin(), tmp);
-//        std::cout << tmp << std::endl;
     }
-    std::cout << next_piece.size() << std::endl;
-//    else{
-//        num_piece = rand() % 7;
-//        if(seven_bag_system.size() == 7)
-//            seven_bag_system.clear();
-//        while(seven_bag_system.find(num_piece) != seven_bag_system.end())
-//            num_piece = rand() % 7;
-//        seven_bag_system.insert(num_piece);
-//    }
 }
 
 shape reverse_shape(shape s){
@@ -86,10 +75,6 @@ void rotate_180(){
 }
 
 void hold_shape(){
-//    if(isHold)
-//        std::cout << "true\n";
-//    else
-//        std::cout << "false\n";
     if(used_hold)
         return;
     if(!isHold){
@@ -106,12 +91,6 @@ void hold_shape(){
     for(int i = 0; i < 3; i++)
         hold = reverse_shape(transpose(hold));
     used_hold = true;
-    //check piece
-    for(int i=0; i<hold.size; i++){
-        for(int j=0; j<hold.size; j++)
-            std::cout << hold.matrix[i][j] << " ";
-        std::cout << '\n';
-    }
 }
 
 void draw_hold_shape(){
@@ -128,10 +107,8 @@ void draw_hold_shape(){
                 pos.h = TILE_SIZE;
                 SDL_SetRenderDrawColor(getRenderer(), hold.color.r, hold.color.g, hold.color.b, 255);
                 SDL_Rect tmp = pos;
-                tmp.x++;
-                tmp.y++;
-                tmp.w -= 2;
-                tmp.h -= 2;
+                tmp.x++; tmp.y++;
+                tmp.w -= 2; tmp.h -= 2;
                 SDL_RenderFillRect(getRenderer(), &tmp);
                 SDL_SetRenderDrawColor(getRenderer(), 219, 219, 219, 255);
                 SDL_RenderDrawRect(getRenderer(), &tmp);
@@ -157,10 +134,8 @@ void draw_next_piece(){
                     pos.h = TILE_SIZE;
                     SDL_SetRenderDrawColor(getRenderer(), next.color.r, next.color.g, next.color.b, 255);
                     SDL_Rect tmp = pos;
-                    tmp.x++;
-                    tmp.y++;
-                    tmp.w -= 2;
-                    tmp.h -= 2;
+                    tmp.x++; tmp.y++;
+                    tmp.w -= 2; tmp.h -= 2;
                     SDL_RenderFillRect(getRenderer(), &tmp);
                     SDL_SetRenderDrawColor(getRenderer(), 219, 219, 219, 255);
                     SDL_RenderDrawRect(getRenderer(), &tmp);
@@ -198,8 +173,6 @@ void ghost_block(shape s){
                 rect.x=100+(s.x+i+4)*TILE_SIZE;
                 rect.y=100+(s.y+hardDrop(prePos)+j-5)*TILE_SIZE;
                 SDL_SetRenderDrawColor(getRenderer(), s.color.r, s.color.g, s.color.b, 255);
-//                SDL_RenderFillRect(getRenderer(), &rect);
-//                SDL_SetRenderDrawColor(getRenderer(), 219, 219, 219, 255);
                 SDL_Rect pos = rect;
                 pos.x += 1; pos.y += 1;
                 pos.w = pos.h -= 2;
@@ -235,15 +208,15 @@ void check_move(){
         switch( e.type ){
             case SDL_KEYDOWN:
                 switch(e.key.keysym.sym) {
-                    case SDLK_SPACE: hard_drop = 1; break;
-                    case SDLK_LEFT: left = 1; break;
-                    case SDLK_RIGHT: right = 1; break;
-                    case SDLK_UP: up = 1; break;
-                    case SDLK_DOWN: down = 1; break;
-                    case SDLK_z: z = 1; break;
-                    case SDLK_x: x = 1; break;
-                    case SDLK_a: a = 1; break;
-                    case SDLK_c: c = 1; break;
+                    case SDLK_SPACE: hard_drop = true; break;
+                    case SDLK_LEFT: left = true; break;
+                    case SDLK_RIGHT: right = true; break;
+                    case SDLK_UP: up = true; break;
+                    case SDLK_DOWN: down = true; break;
+                    case SDLK_z: z = true; break;
+                    case SDLK_x: x = true; break;
+                    case SDLK_a: a = true; break;
+                    case SDLK_c: c = true; break;
                     case SDLK_ESCAPE: running = false; break;
                 }
                 update();
@@ -287,50 +260,50 @@ void drawPiece(shape cur){
 void renderPiece() {
     SDL_SetRenderDrawColor(getRenderer(), 0, 0, 0, 255);
     SDL_RenderClear(getRenderer());
-//    std::cout << drop;
-    frameCount++;
-    int timerFPS = SDL_GetTicks()-lastFrame;
-    if(timerFPS<(1000/60)) {
-//        drop++;
-//        if(lv < 4 && cleared_line >= 4){
-//            int tmp = cleared_line - 4;
-//            lv++;
-//            cleared_line = tmp;
-//        }
-//        if(drop % speed[lv] == 0){
-//            drop = 0;
-//            cur.y++;
-//            std::cout << "\033[2J\033[1;1H";
-//            std::cout << "number of line cleared: " << cleared_line << '\n';
-//            std::cout << "level: " << lv << '\n';
-//        }
-        SDL_Delay((1000/60)-timerFPS);
+    drop++;
+    if(level < 4 && cleared_line >= 4){
+        int tmp = cleared_line - 4;
+        level++;
+        cleared_line = tmp;
+    }
+    if(drop % speed[level] == 0){
+        drop = 0;
+        if(!hard_drop && check_collision_bottom(prePos))
+            cur.y++;
     }
     drawPiece(cur);
     ghost_block(cur);
-    cleared_line += line_clear();
+    int tmp = line_clear();
+    cleared_line += tmp;
+    total_line_cleared += tmp;
     display_block(blocks);
+    loadText("Score", {255, 255, 255, 255}, {640, 660, 100, 50});
+    loadText(std::to_string(total_line_cleared), {255, 255, 255, 255}, {640, 700, 50, 50});
+    loadText("Level", {255, 255, 255, 255}, {160, 500, 100, 50});
+    loadText(std::to_string(level), {255, 255, 255, 255}, {180, 540, 50, 50});
+    loadText("Lines", {255, 255, 255, 255}, {160, 580, 100, 50});
+    loadText(std::to_string(cleared_line), {255, 255, 255, 255}, {180, 620, 50, 50});
 }
+
 
 void runGame(){
     random_piece();
-//    std::cout << num_piece << std::endl;
     cur = blocks[num_piece];
     rect.w = rect.h = TILE_SIZE;
     running = true;
     rotate_right();
+    currentTime = SDL_GetTicks();
+    lastTime = currentTime;
     while(running) {
-        lastFrame = SDL_GetTicks();
+//        currentTime = SDL_GetTicks();
+//        delta = currentTime - lastTime;
         SDL_RenderPresent(getRenderer());
-//        SDL_Delay(500);
-        if(lastFrame>=(lastTime+3000)) {
-            lastTime=lastFrame;
-            fps=frameCount;
-            frameCount=0;
-        }
+//        if(delta > 30){
+//            std::cout << 0 << '\n';
+//            lastTime = currentTime;
+//        }
         check_move();
         prePos.clear();
-//        if(c) return;
         renderPiece();
     }
 }

@@ -31,8 +31,3 @@ int line_clear(){
     }
     return row.size();
 }
-
-int cur_score(int inc){
-//    score++
-    std::cout << score << '\n';
-}

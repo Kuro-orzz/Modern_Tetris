@@ -17,5 +17,6 @@ void close();
 SDL_Renderer* getRenderer();
 SDL_Window* getWindow();
 SDL_Texture* getTexture();
+TTF_Font* getFont();
 
 #endif // INIT_H

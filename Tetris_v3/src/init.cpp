@@ -4,7 +4,6 @@ SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 TTF_Font* gFont = NULL;
 SDL_Texture* background = NULL;
-SDL_Texture* mText = NULL;
 
 void init(){
     gWindow = SDL_CreateWindow("Tetris", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCR_W, SCR_H, SDL_WINDOW_SHOWN);
@@ -28,11 +27,12 @@ void init(){
 
 void loadText(std::string s, SDL_Color color, SDL_Rect Text_pos){
     SDL_Surface* text = TTF_RenderText_Solid(gFont, s.c_str(), color);
-    mText = SDL_CreateTextureFromSurface(gRenderer, text);
+    SDL_Texture* mText = SDL_CreateTextureFromSurface(gRenderer, text);
 
     SDL_RenderCopy(gRenderer, mText, NULL, &Text_pos);
 
     SDL_FreeSurface(text);
+    SDL_DestroyTexture(mText);
 }
 
 void waitUntilKeyPressed(){
@@ -65,4 +65,8 @@ SDL_Window* getWindow(){
 
 SDL_Texture* getTexture(){
     return background;
+}
+
+TTF_Font* getFont(){
+    return gFont;
 }

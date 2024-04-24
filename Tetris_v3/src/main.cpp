@@ -10,42 +10,42 @@
 
 int main(int argc, char* argv[]){
     init();
-    SDL_RenderCopy( getRenderer(), getTexture(), NULL, NULL);
-    Menu t;
-    t.showMenu();
-
-    bool play = false;
-    SDL_Event e;
-    while( !play ){
-        while( SDL_PollEvent( &e ) != 0 ){
-            if( e.type == SDL_QUIT )
-                return 0;
-            int x, y;
-            SDL_GetMouseState(&x, &y);
-            std::cout << x << " " << y << '\n';
-            // play button
-            if(x > 340 && x < 574 && y > 360 && y < 408){
-                if(e.type == SDL_MOUSEBUTTONDOWN)
-                    play = true;
-            }
-            // quit button
-            if(x > 340 && x < 574 && y > 520 && y < 568){
-                if(e.type == SDL_MOUSEBUTTONDOWN)
-                    return 0;
-            }
-         }
-    }
+//    SDL_RenderCopy( getRenderer(), getTexture(), NULL, NULL);
+//    Menu t;
+//    t.showMenu();
+//
+//    bool play = false;
+//    SDL_Event e;
+//    while( !play ){
+//        while( SDL_PollEvent( &e ) != 0 ){
+//            if( e.type == SDL_QUIT )
+//                return 0;
+//            int x, y;
+//            SDL_GetMouseState(&x, &y);
+//            std::cout << x << " " << y << '\n';
+//             play button
+//            if(x > 340 && x < 574 && y > 360 && y < 408){
+//                if(e.type == SDL_MOUSEBUTTONDOWN)
+//                    play = true;
+//            }
+//             quit button
+//            if(x > 340 && x < 574 && y > 520 && y < 568){
+//                if(e.type == SDL_MOUSEBUTTONDOWN)
+//                    return 0;
+//            }
+//         }
+//    }
 
 //    waitUntilKeyPressed();
 
-    int count_down = 3;
-    do{
-        SDL_RenderClear(getRenderer());
-        drawBoard();
-        loadText(std::to_string(count_down), {255, 255, 255}, {350, 300, 200, 200});
-        SDL_RenderPresent(getRenderer());
-        SDL_Delay(1000);
-    }while(count_down--);
+//    int count_down = 3;
+//    do{
+//        SDL_RenderClear(getRenderer());
+//        drawBoard();
+//        loadText(std::to_string(count_down), {255, 255, 255}, {350, 300, 200, 200});
+//        SDL_RenderPresent(getRenderer());
+//        SDL_Delay(1000);
+//    }while(count_down--);
 
     srand(time(NULL));
     initBlock();
