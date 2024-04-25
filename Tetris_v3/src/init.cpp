@@ -6,10 +6,14 @@ TTF_Font* gFont = NULL;
 SDL_Texture* background = NULL;
 
 void init(){
+    SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO );
     gWindow = SDL_CreateWindow("Tetris", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCR_W, SCR_H, SDL_WINDOW_SHOWN);
     gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
-
+    IMG_Init(IMG_INIT_PNG);
     TTF_Init();
+
+//    if(Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 512 ))
+//        std::cout << Mix_GetError();
 
     gFont = TTF_OpenFont("Font/VNI-Disney.ttf", 500);
 

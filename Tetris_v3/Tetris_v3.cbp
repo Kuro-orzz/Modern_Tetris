@@ -35,6 +35,10 @@
 		<Unit filename="SDL2_image.dll" />
 		<Unit filename="SDL2_mixer.dll" />
 		<Unit filename="SDL2_ttf.dll" />
+		<Unit filename="Sound/Music.mp3" />
+		<Unit filename="Sound/Step_on_the_scarlet.mp3" />
+		<Unit filename="Sound/beat.mp3" />
+		<Unit filename="Sound/beat.wav" />
 		<Unit filename="Tetris_v3.cbp" />
 		<Unit filename="Tetris_v3.cscope_file_list" />
 		<Unit filename="Tetris_v3.depend" />
@@ -65,11 +69,15 @@
 		<Unit filename="src/gVar.h" />
 		<Unit filename="src/init.cpp" />
 		<Unit filename="src/init.h" />
+		<Unit filename="src/level.cpp" />
+		<Unit filename="src/level.h" />
 		<Unit filename="src/line.cpp" />
 		<Unit filename="src/line.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/menu.h" />
+		<Unit filename="src/music.cpp" />
+		<Unit filename="src/music.h" />
 		<Unit filename="src/rotation.cpp" />
 		<Unit filename="src/rotation.h" />
 		<Extensions>

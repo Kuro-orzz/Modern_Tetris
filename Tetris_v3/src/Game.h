@@ -29,7 +29,8 @@ void check_move();
 
 void drawPiece(shape s);
 void renderPiece();
-void runGame();
+void runGame(int start_level);
 bool get_status();
+int cur_level();
 
 #endif // GAME_H

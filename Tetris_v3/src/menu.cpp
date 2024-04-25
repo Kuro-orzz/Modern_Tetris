@@ -13,7 +13,6 @@ void Menu::loadMenu(){
 }
 
 void Menu::showMenu(){
-    loadMenu();
     SDL_RenderCopy(getRenderer(), menu, NULL, NULL);
     SDL_RenderPresent(getRenderer());
 }

@@ -6,6 +6,8 @@
 #include <vector>
 #include "block.h"
 
+#define Max_level 20
+
 static shape blocks[7];
 
 static shape cur, next, hold;
@@ -22,6 +24,6 @@ static int total_line_cleared = 0;
 static std::set<int> seven_bag_system;
 static std::vector<int> next_piece;
 static int level = 0;
-static int speed[5] = {30, 20, 15, 10, 8};
+static int speed[21] = {70, 66, 60, 56, 52, 48, 44, 40, 36, 32, 28, 24, 22, 20, 18, 16, 14, 12, 10, 6, 4};
 
 #endif // GVAR_H
