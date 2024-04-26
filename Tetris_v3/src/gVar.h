@@ -28,5 +28,6 @@ static int speed[21] = {70, 66, 60, 56, 52, 48, 44, 40, 36, 32, 28, 24, 22, 20, 
 
 static bool return_to_menu = false;
 static bool restart = false;
+static bool go_back = false;
 
 #endif // GVAR_H

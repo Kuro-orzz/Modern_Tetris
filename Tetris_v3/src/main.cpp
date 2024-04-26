@@ -53,18 +53,20 @@ int main(int argc, char* argv[]){
                 std::cout << x << " " << y << '\n';
                 //play button
                 if(x > 340 && x < 574 && y > 360 && y < 408){
+                    // Draw
                     SDL_SetRenderDrawColor(getRenderer(), 0, 0, 0, 255);
                     SDL_Rect playPos = {340, 360, 574-340, 410-360};
                     SDL_RenderFillRect(getRenderer(), &playPos);
                     SDL_SetRenderDrawColor(getRenderer(), 255, 255, 255, 255);
                     SDL_RenderFillRect(getRenderer(), &playPos);
                     loadText("Play", {255, 94, 94, 255}, {418, 355, 80, 60});
-
                     SDL_RenderPresent(getRenderer());
 
                     if(e.type == SDL_MOUSEBUTTONDOWN){
                         //MainMusic->PlayMusic(2);
+                        // play game
                         level = 0;
+                        tmp = level;
                         setScore(0);
                         setClearedLine(0);
                         play = true;
@@ -72,39 +74,46 @@ int main(int argc, char* argv[]){
                 }
                 // level
                 else if(x > 340 && x < 574 && y > 436 && y < 486){
+                    // draw
                     SDL_SetRenderDrawColor(getRenderer(), 0, 0, 0, 255);
                     SDL_Rect playPos = {340, 436, 574-340, 486-436};
                     SDL_RenderFillRect(getRenderer(), &playPos);
                     SDL_SetRenderDrawColor(getRenderer(), 255, 255, 255, 255);
                     SDL_RenderFillRect(getRenderer(), &playPos);
                     loadText("Level", {255, 94, 94, 255}, {410, 430, 100, 60});
-
                     SDL_RenderPresent(getRenderer());
+
                     if(e.type == SDL_MOUSEBUTTONDOWN){
+                        // choose level
                         level = choose_level();
-                        std::cout << level << '\n';
+                        // if quit
                         if(level == -1)
                             return 0;
-                        tmp = level;
-                        setScore(0);
-                        setClearedLine(0);
-                        play = true;
+                        // play level chosen
+                        if(!isBackInLevel()){
+                            tmp = level;
+                            setScore(0);
+                            setClearedLine(0);
+                            play = true;
+                        }
                     }
                 }
                // high score
                 else if(x > 340 && x < 574 && y > 516 && y < 564){
+                    // draw
                     SDL_SetRenderDrawColor(getRenderer(), 0, 0, 0, 255);
                     SDL_Rect playPos = {340, 516, 574-340, 564-516};
                     SDL_RenderFillRect(getRenderer(), &playPos);
                     SDL_SetRenderDrawColor(getRenderer(), 255, 255, 255, 255);
                     SDL_RenderFillRect(getRenderer(), &playPos);
                     loadText("High score", {255, 94, 94, 255}, {360, 508, 200, 60});
-
                     SDL_RenderPresent(getRenderer());
+
                     if(e.type == SDL_MOUSEBUTTONDOWN){
                         SDL_RenderClear(getRenderer());
                         show_highscore();
-                        return 0;
+                        if(!isTurnBack())
+                            return 0;
                     }
                 }
                 // quit
@@ -130,8 +139,6 @@ int main(int argc, char* argv[]){
         }
         return 1;
     };
-    if(showMenu() == 0)
-        return 0;
 
     auto countDown = [&](){
         int count_down = 3;
@@ -144,46 +151,46 @@ int main(int argc, char* argv[]){
         }while(count_down--);
     };
 
-//    countDown();
-    srand(time(NULL));
-    initBlock();
-    while(!Game_over && !isQuit()){
-        if(isRestart()){
-            level = tmp;
-            setScore(0);
-            setClearedLine(0);
-//            countDown();
+    while(true){
+
+        if(showMenu() == 0)
+            return 0;
+    //    countDown();
+        srand(time(NULL));
+        initBlock();
+        while(!Game_over && !isQuit()){
+            if(isRestart()){
+                level = tmp;
+                setScore(0);
+                setClearedLine(0);
+    //            countDown();
+            }
+            runGame(level);
+            level = cur_level();
+            for(int i = 0; i < 10; i++)
+                if(matrix_board_value(0, i) > 0)
+                    Game_over = true;
+            if(isReturnTOMenu()){
+                if(showMenu() == 0)
+                    return 0;
+            }
         }
-        runGame(level);
-        level = cur_level();
-        for(int i = 0; i < 10; i++)
-            if(matrix_board_value(0, i) > 0)
-                Game_over = true;
-        if(isReturnTOMenu()){
-            if(showMenu() == 0)
-                return 0;
-        }
+        show_cur_score();
+        // save score
+        std::fstream file;
+        file.open("src/highscore.txt", std::ios::app);
+        file << getScore() << '\n';
+        file.close();
+        if(!isTurnBack())
+            return 0;
+
+        Game_over = false;
+        setScore(0);
+        setClearedLine(0);
+        for(int i = 0; i < 20; i++)
+            for(int j = 0; j < 10; j++)
+                change_board(i, j, 0);
     }
-    if(show_cur_score() == -1)
-        return 0;
-//    // high score
-//    std::vector<int> high_score;
-//    std::fstream file("src/highscore.txt", 	std::ios::in);
-//    int temp;
-//    while(file >> temp)
-//        high_score.push_back(temp);
-//    file.close();
-//    high_score.push_back(getScore());
-//    std::sort(high_score.begin(), high_score.end(), std::greater<int>());
-//    for(int i = 0; i < 5; i++)
-//        std::cout << high_score[i] << '\n';
-//    file.open("src/highscore.txt", std::ios::app);
-//    file << getScore() << '\n';
-//    std::cout << high_score.size() << '\n';
-//    std::cout << getScore() << '\n';
-//    std::cout << "Game over";
-//    SDL_Delay(2000);
-//    close();
-//    file.close();
+    close();
     return 0;
 }

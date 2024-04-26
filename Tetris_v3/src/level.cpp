@@ -1,11 +1,9 @@
 #include "level.h"
 
-SDL_Texture* level = NULL;
 Oxy p[21];
 
 void show_all_level(){
-    level = IMG_LoadTexture(getRenderer(), "img_src/choose_level.png");
-    SDL_RenderCopy(getRenderer(), level, NULL, NULL);
+    SDL_RenderCopy(getRenderer(), getChooseLevel(), NULL, NULL);
     // draw
     int number = 0;
     SDL_SetRenderDrawColor(getRenderer(), 255, 255, 255, 255);
@@ -26,6 +24,8 @@ void show_all_level(){
             number++;
         }
     }
+    SDL_Rect goBack = {20, 20, 40, 40};
+    SDL_RenderCopy(getRenderer(), getGoBack(), NULL, &goBack);
     SDL_RenderPresent(getRenderer());
 //    for(int i = 0; i < 21; i++)
 //        std::cout << p[i].x << " " << p[i].y << " " << p[i].w << " " << p[i].h << '\n';
@@ -36,6 +36,7 @@ void show_all_level(){
 int choose_level(){
     show_all_level();
     bool choose = false;
+    go_back = false;
     SDL_Event e;
     while( !choose ){
         while( SDL_PollEvent( &e ) != 0 ){
@@ -44,6 +45,13 @@ int choose_level(){
             int x, y;
             SDL_GetMouseState(&x, &y);
 //            std::cout << x << " " << y << '\n';
+            // 20 20 60 60
+            if(x > 20 && x < 60 && y > 20 && y < 60){
+                if(e.type == SDL_MOUSEBUTTONDOWN){
+                    go_back = true;
+                    return 0;
+                }
+            }
             int cnt = -1;
             for(int i = 0; i < 21; i++)
                 if(x > p[i].x && x < p[i].x+p[i].w && y > p[i].y && y < p[i].y+p[i].h){
@@ -70,5 +78,8 @@ int choose_level(){
 //            if()
         }
     }
+}
 
+bool isBackInLevel(){
+    return go_back;
 }

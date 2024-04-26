@@ -4,9 +4,11 @@ SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 TTF_Font* gFont = NULL;
 SDL_Texture* background = NULL;
+SDL_Texture* choose_level_background = NULL;
 SDL_Texture* Pause_button = NULL;
 SDL_Texture* resume = NULL;
 SDL_Texture* home_button = NULL;
+SDL_Texture* go_back = NULL;
 
 void init(){
     SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO );
@@ -22,11 +24,12 @@ void init(){
 
     SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
     background = IMG_LoadTexture(gRenderer, "img_src/background0.jpg");
+    choose_level_background = IMG_LoadTexture(getRenderer(), "img_src/choose_level.png");
     Pause_button = IMG_LoadTexture(gRenderer, "img_src/Pause_Button.png");
     resume = IMG_LoadTexture(gRenderer, "img_src/resume.png");
     home_button = IMG_LoadTexture(gRenderer, "img_src/home_button.png");
-    if(home_button == NULL)
-        std::cout << "fail";
+    go_back = IMG_LoadTexture(gRenderer, "img_src/go_back.jpg");
+
 //    SDL_RenderCopy( gRenderer, background, NULL, NULL);
 //
 //    SDL_RenderPresent( gRenderer );
@@ -86,6 +89,10 @@ SDL_Texture* getTexture(){
     return background;
 }
 
+SDL_Texture* getChooseLevel(){
+    return choose_level_background;
+}
+
 SDL_Texture* getPauseButton(){
     return Pause_button;
 }
@@ -96,6 +103,10 @@ SDL_Texture* getResume(){
 
 SDL_Texture* getHomeButton(){
     return home_button;
+}
+
+SDL_Texture* getGoBack(){
+    return go_back;
 }
 
 TTF_Font* getFont(){

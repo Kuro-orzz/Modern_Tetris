@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include <utility>
 #include "init.h"
+#include "gVar.h"
 
 struct Oxy{
     int x, y, w, h;
@@ -12,5 +13,6 @@ struct Oxy{
 
 void show_all_level();
 int choose_level();
+bool isBackInLevel();
 
 #endif

@@ -311,8 +311,8 @@ void renderPiece() {
     SDL_SetRenderDrawColor(getRenderer(), 0, 0, 0, 255);
     SDL_RenderClear(getRenderer());
     drop++;
-    if(level < Max_level && cleared_line >= 4){
-        int tmp = cleared_line - 4;
+    if(level < Max_level && cleared_line >= level+5){
+        int tmp = cleared_line - (level+5);
         level++;
         cleared_line = tmp;
     }
@@ -326,10 +326,7 @@ void renderPiece() {
     int tmp = line_clear();
     cleared_line += tmp;
     total_line_cleared += tmp;
-//    if(tmp == 1)
-//        score += (40+40*level)*1;
-//    else if(tmp == 2)
-        score += (40+40*level)*tmp;
+    score += (40+40*level)*tmp;
     display_block(blocks);
     // text around board
     loadText("Level", {255, 255, 255, 255}, {160, 500, 100, 50});
