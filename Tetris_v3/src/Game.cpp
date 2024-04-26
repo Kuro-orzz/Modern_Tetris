@@ -201,10 +201,53 @@ void update() {
 
 void check_move(){
     up = down = left = right = z = x = a = hard_drop = c = 0;
-    quit_game = false;
     SDL_Event e;
     while(SDL_PollEvent(&e)) {
         if(e.type == SDL_QUIT){running = false; quit_game = true; return;}
+        // 840, 10, 50, 50
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        if(((x > 840 && x < 890 && y > 10 && y < 60) && e.type == SDL_MOUSEBUTTONDOWN) || (e.type == SDLK_ESCAPE)){
+            bool press = false;
+            SDL_Event e;
+            while( !press ){
+                while( SDL_PollEvent( &e ) != 0 ){
+                    if( e.type == SDL_QUIT ){running = false; quit_game = true; return;}
+                        int x, y;
+                        SDL_GetMouseState(&x, &y);
+                        std::cout << x << " " << y << '\n';
+                        SDL_Rect pos = {300, 200, 400, 468};
+                        SDL_RenderCopy(getRenderer(), getResume(), NULL, &pos);
+                        SDL_RenderPresent(getRenderer());
+                        // 345 581 652 639
+                        if(x > 345 && x < 652 && y > 581 && y < 639){
+                            if(e.type == SDL_MOUSEBUTTONDOWN)
+                                press = true;
+                        }
+                        // 407 478 596 507
+                        else if(x > 407 && x < 596 && y > 478 && y < 507){
+                            if(e.type == SDL_MOUSEBUTTONDOWN){
+                                for(int i = 0; i < 20; i++)
+                                    for(int j = 0; j < 10; j++)
+                                        change_board(i, j, 0);
+                                running = false;
+                                restart = true;
+                                return;
+                            }
+                        }
+                        // 407 519 596 551
+                        else if(x > 407 && x < 596 && y > 519 && y < 551){
+//                            std::cout << running << '\n';
+                            if(e.type == SDL_MOUSEBUTTONDOWN){
+                                return_to_menu = true;
+                                running = false;
+                                return;
+                            }
+                        }
+//                        std::cout << running << '\n';
+                }
+            }
+        }
         switch( e.type ){
             case SDL_KEYDOWN:
                 switch(e.key.keysym.sym) {
@@ -217,7 +260,6 @@ void check_move(){
                     case SDLK_x: x = true; break;
                     case SDLK_a: a = true; break;
                     case SDLK_c: c = true; break;
-                    case SDLK_ESCAPE: running = false; break;
                 }
                 update();
         }
@@ -230,6 +272,8 @@ void drawPiece(shape cur){
     draw_next_piece();
     if(!running)
         return;
+    return_to_menu = false;
+    restart = false;
     for(int i=0; i < cur.size; i++) {
         for(int j=0; j < cur.size; j++) {
             if(cur.matrix[i][j]) {
@@ -312,12 +356,25 @@ void runGame(int start_level){
         prePos.clear();
         renderPiece();
     }
+    score += 10*(level+1);
 }
 
-bool get_status(){
+bool isQuit(){
     return quit_game;
 }
 
 int cur_level(){
     return level;
+}
+
+bool isReturnTOMenu(){
+    return return_to_menu;
+}
+
+bool isRestart(){
+    return restart;
+}
+
+int getScore(){
+    return score;
 }

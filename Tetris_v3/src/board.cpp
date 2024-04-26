@@ -58,6 +58,8 @@ void drawBoard(){
         SDL_RenderDrawLine(getRenderer(), 275+35*10+182+i-3, 100+28, 275+35*10+182+i-3, 100+35*20-145-18+1);
     for(int i = 0; i < 5; i++)
         SDL_RenderDrawLine(getRenderer(), 275+35*10+182-18-1, 100+35*20-145+i-1, 275+35*10+182+i-3-1, 100+35*20-145-18+2);
+    SDL_Rect button = {840, 10, 50, 50};
+    SDL_RenderCopy( getRenderer(), getPauseButton(), NULL, &button);
 }
 
 void fill_matrix_board(int x, int y, int num){

@@ -19,6 +19,8 @@ void close();
 SDL_Renderer* getRenderer();
 SDL_Window* getWindow();
 SDL_Texture* getTexture();
+SDL_Texture*  getPauseButton();
+SDL_Texture* getResume();
 TTF_Font* getFont();
 
 #endif // INIT_H

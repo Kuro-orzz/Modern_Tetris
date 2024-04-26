@@ -4,6 +4,8 @@ SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 TTF_Font* gFont = NULL;
 SDL_Texture* background = NULL;
+SDL_Texture* Pause_button = NULL;
+SDL_Texture* resume = NULL;
 
 void init(){
     SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO );
@@ -18,8 +20,9 @@ void init(){
     gFont = TTF_OpenFont("Font/VNI-Disney.ttf", 500);
 
     SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-    background = IMG_LoadTexture(getRenderer(), "img_src/background0.jpg");
-
+    background = IMG_LoadTexture(gRenderer, "img_src/background0.jpg");
+    Pause_button = IMG_LoadTexture(gRenderer, "img_src/Pause_Button.png");
+    resume = IMG_LoadTexture(gRenderer, "img_src/resume.png");
 //    SDL_RenderCopy( gRenderer, background, NULL, NULL);
 //
 //    SDL_RenderPresent( gRenderer );
@@ -69,6 +72,14 @@ SDL_Window* getWindow(){
 
 SDL_Texture* getTexture(){
     return background;
+}
+
+SDL_Texture* getPauseButton(){
+    return Pause_button;
+}
+
+SDL_Texture* getResume(){
+    return resume;
 }
 
 TTF_Font* getFont(){

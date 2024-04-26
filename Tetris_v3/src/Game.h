@@ -30,7 +30,10 @@ void check_move();
 void drawPiece(shape s);
 void renderPiece();
 void runGame(int start_level);
-bool get_status();
+bool isQuit();
 int cur_level();
+bool isReturnTOMenu();
+bool isRestart();
+int getScore();
 
 #endif // GAME_H

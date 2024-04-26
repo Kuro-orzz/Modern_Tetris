@@ -67,6 +67,10 @@
 		<Unit filename="src/collision.h" />
 		<Unit filename="src/gVar.cpp" />
 		<Unit filename="src/gVar.h" />
+		<Unit filename="src/highscore.cpp" />
+		<Unit filename="src/highscore.h" />
+		<Unit filename="src/highscore.out" />
+		<Unit filename="src/highscore.txt" />
 		<Unit filename="src/init.cpp" />
 		<Unit filename="src/init.h" />
 		<Unit filename="src/level.cpp" />
