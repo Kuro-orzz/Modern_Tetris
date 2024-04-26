@@ -62,7 +62,7 @@ Chạy vào bảng chọn menu có các lựa chọn cho mình
 
 ![image](https://github.com/Kuro-orzz/Modern_Tetris/blob/main/Review_game/choose_level.png)
 
-- Trong quá trình chơi game sẽ có 1 nút ấn bên trái, nếu ấn vào đó nó sẽ hiện lên các lựa chọn, chúng ta có thể lựa chọn chơi tiếp hoặc chơi lại level đó, hoặc chọn quay về  
+- Trong quá trình chơi game sẽ có 1 nút ấn bên trái, nếu ấn vào đó nó sẽ hiện lên các lựa chọn, chúng ta có thể lựa chọn chơi tiếp hoặc chơi lại level đó, hoặc chọn quay về menu 
 
 ![image](https://github.com/Kuro-orzz/Modern_Tetris/blob/main/Tetris_v3/img_src/resume.png)
 
