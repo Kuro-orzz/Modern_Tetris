@@ -220,11 +220,13 @@ void check_move(){
                         SDL_RenderCopy(getRenderer(), getResume(), NULL, &pos);
                         SDL_RenderPresent(getRenderer());
                         // 345 581 652 639
+                        // back to game
                         if(x > 345 && x < 652 && y > 581 && y < 639){
                             if(e.type == SDL_MOUSEBUTTONDOWN)
                                 press = true;
                         }
                         // 407 478 596 507
+                        // restart
                         else if(x > 407 && x < 596 && y > 478 && y < 507){
                             if(e.type == SDL_MOUSEBUTTONDOWN){
                                 for(int i = 0; i < 20; i++)
@@ -236,10 +238,14 @@ void check_move(){
                             }
                         }
                         // 407 519 596 551
+                        // return to menu
                         else if(x > 407 && x < 596 && y > 519 && y < 551){
 //                            std::cout << running << '\n';
                             if(e.type == SDL_MOUSEBUTTONDOWN){
                                 return_to_menu = true;
+                                for(int i = 0; i < 20; i++)
+                                    for(int j = 0; j < 10; j++)
+                                        change_board(i, j, 0);
                                 running = false;
                                 return;
                             }
@@ -377,4 +383,12 @@ bool isRestart(){
 
 int getScore(){
     return score;
+}
+
+void setScore(int num){
+    score = num;
+}
+
+void setClearedLine(int num){
+    cleared_line = num;
 }

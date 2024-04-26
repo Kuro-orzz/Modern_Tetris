@@ -6,6 +6,7 @@ TTF_Font* gFont = NULL;
 SDL_Texture* background = NULL;
 SDL_Texture* Pause_button = NULL;
 SDL_Texture* resume = NULL;
+SDL_Texture* home_button = NULL;
 
 void init(){
     SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO );
@@ -23,6 +24,9 @@ void init(){
     background = IMG_LoadTexture(gRenderer, "img_src/background0.jpg");
     Pause_button = IMG_LoadTexture(gRenderer, "img_src/Pause_Button.png");
     resume = IMG_LoadTexture(gRenderer, "img_src/resume.png");
+    home_button = IMG_LoadTexture(gRenderer, "img_src/home_button.png");
+    if(home_button == NULL)
+        std::cout << "fail";
 //    SDL_RenderCopy( gRenderer, background, NULL, NULL);
 //
 //    SDL_RenderPresent( gRenderer );
@@ -51,6 +55,14 @@ void waitUntilKeyPressed(){
 }
 
 void close(){
+    SDL_DestroyTexture(background);
+    background = NULL;
+    SDL_DestroyTexture(Pause_button);
+    Pause_button = NULL;
+    SDL_DestroyTexture(resume);
+    resume = NULL;
+    SDL_DestroyTexture(home_button);
+    home_button = NULL;
     SDL_DestroyRenderer(gRenderer);
     gRenderer = NULL;
     SDL_DestroyWindow(gWindow);
@@ -80,6 +92,10 @@ SDL_Texture* getPauseButton(){
 
 SDL_Texture* getResume(){
     return resume;
+}
+
+SDL_Texture* getHomeButton(){
+    return home_button;
 }
 
 TTF_Font* getFont(){

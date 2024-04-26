@@ -6,7 +6,6 @@ Oxy p[21];
 void show_all_level(){
     level = IMG_LoadTexture(getRenderer(), "img_src/choose_level.png");
     SDL_RenderCopy(getRenderer(), level, NULL, NULL);
-
     // draw
     int number = 0;
     SDL_SetRenderDrawColor(getRenderer(), 255, 255, 255, 255);
@@ -35,6 +34,7 @@ void show_all_level(){
 }
 
 int choose_level(){
+    show_all_level();
     bool choose = false;
     SDL_Event e;
     while( !choose ){

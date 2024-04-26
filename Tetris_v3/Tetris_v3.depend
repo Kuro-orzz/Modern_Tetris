@@ -301,3 +301,128 @@
 	<SDL.h>
 	"init.h"
 
+1713374179 source:d:\project\modern_tetris\tetris_v3\src\block.cpp
+	"block.h"
+
+1713367442 d:\project\modern_tetris\tetris_v3\src\block.h
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	"init.h"
+
+1714119459 d:\project\modern_tetris\tetris_v3\src\init.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<SDL_image.h>
+	<iostream>
+
+1714097434 source:d:\project\modern_tetris\tetris_v3\src\board.cpp
+	"board.h"
+
+1713796563 d:\project\modern_tetris\tetris_v3\src\board.h
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	<utility>
+	"init.h"
+	"line.h"
+	"gVar.h"
+
+1713957247 d:\project\modern_tetris\tetris_v3\src\line.h
+	<algorithm>
+	"board.h"
+	"gVar.h"
+
+1714100971 d:\project\modern_tetris\tetris_v3\src\gvar.h
+	<SDL.h>
+	<set>
+	<vector>
+	"block.h"
+
+1712765150 source:d:\project\modern_tetris\tetris_v3\src\collision.cpp
+
+1714116322 source:d:\project\modern_tetris\tetris_v3\src\game.cpp
+	"Game.h"
+
+1714116322 d:\project\modern_tetris\tetris_v3\src\game.h
+	<SDL.h>
+	<vector>
+	<utility>
+	<set>
+	"board.h"
+	"init.h"
+	"gVar.h"
+	"rotation.h"
+	"collision.h"
+
+1712834752 d:\project\modern_tetris\tetris_v3\src\rotation.h
+	"block.h"
+	"Game.h"
+	"gVar.h"
+
+1712765150 d:\project\modern_tetris\tetris_v3\src\collision.h
+
+1713893143 source:d:\project\modern_tetris\tetris_v3\src\gvar.cpp
+	"gVar.h"
+
+1714121005 source:d:\project\modern_tetris\tetris_v3\src\highscore.cpp
+	"highscore.h"
+
+1714120951 d:\project\modern_tetris\tetris_v3\src\highscore.h
+	<SDL.h>
+	<fstream>
+	<vector>
+	"init.h"
+	"Game.h"
+
+1714119550 source:d:\project\modern_tetris\tetris_v3\src\init.cpp
+	"init.h"
+
+1714116026 source:d:\project\modern_tetris\tetris_v3\src\level.cpp
+	"level.h"
+
+1714073511 d:\project\modern_tetris\tetris_v3\src\level.h
+	<SDL.h>
+	<SDL_image.h>
+	<utility>
+	"init.h"
+
+1713957247 source:d:\project\modern_tetris\tetris_v3\src\line.cpp
+	"line.h"
+
+1714120980 source:d:\project\modern_tetris\tetris_v3\src\main.cpp
+	"Game.h"
+	"gVar.h"
+	"menu.h"
+	"level.h"
+	"highscore.h"
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<ctime>
+	<cstring>
+	<fstream>
+	<vector>
+
+1713890598 d:\project\modern_tetris\tetris_v3\src\menu.h
+	<SDL.h>
+	<SDL_image.h>
+	"init.h"
+
+1714069621 source:d:\project\modern_tetris\tetris_v3\src\menu.cpp
+	"menu.h"
+
+1714051151 source:d:\project\modern_tetris\tetris_v3\src\music.cpp
+	"music.h"
+
+1713983262 d:\project\modern_tetris\tetris_v3\src\music.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<iostream>
+
+1712837014 source:d:\project\modern_tetris\tetris_v3\src\rotation.cpp
+	"rotation.h"
+

@@ -38,7 +38,10 @@ int main(int argc, char* argv[]){
 
 //    SDL_RenderPresent(getRenderer());
     int level = 0;
+    int tmp = level;
     auto showMenu = [&](){
+        t.showMenu();
+        SDL_RenderPresent(getRenderer());
         bool play = false;
         SDL_Event e;
         while( !play ){
@@ -61,6 +64,9 @@ int main(int argc, char* argv[]){
 
                     if(e.type == SDL_MOUSEBUTTONDOWN){
                         //MainMusic->PlayMusic(2);
+                        level = 0;
+                        setScore(0);
+                        setClearedLine(0);
                         play = true;
                     }
                 }
@@ -76,8 +82,12 @@ int main(int argc, char* argv[]){
                     SDL_RenderPresent(getRenderer());
                     if(e.type == SDL_MOUSEBUTTONDOWN){
                         level = choose_level();
+                        std::cout << level << '\n';
                         if(level == -1)
                             return 0;
+                        tmp = level;
+                        setScore(0);
+                        setClearedLine(0);
                         play = true;
                     }
                 }
@@ -116,13 +126,13 @@ int main(int argc, char* argv[]){
                     t.showMenu();
                     SDL_RenderPresent(getRenderer());
                 }
-
              }
         }
         return 1;
     };
     if(showMenu() == 0)
         return 0;
+
     auto countDown = [&](){
         int count_down = 3;
         do{
@@ -137,11 +147,12 @@ int main(int argc, char* argv[]){
 //    countDown();
     srand(time(NULL));
     initBlock();
-    int tmp = level;
     while(!Game_over && !isQuit()){
         if(isRestart()){
             level = tmp;
-            countDown();
+            setScore(0);
+            setClearedLine(0);
+//            countDown();
         }
         runGame(level);
         level = cur_level();
@@ -153,22 +164,26 @@ int main(int argc, char* argv[]){
                 return 0;
         }
     }
-    // high score
-    std::vector<int> high_score;
-    std::fstream file("src/highscore.txt", 	std::ios::in);
-    int temp;
-    while(file >> temp)
-        high_score.push_back(temp);
-    file.close();
-    high_score.push_back(getScore());
-    std::sort(high_score.begin(), high_score.end(), std::greater<int>());
-    file.open("src/highscore.txt", std::ios::app);
-    file << getScore() << '\n';
-    std::cout << high_score.size() << '\n';
-    std::cout << getScore() << '\n';
-    std::cout << "Game over";
+    if(show_cur_score() == -1)
+        return 0;
+//    // high score
+//    std::vector<int> high_score;
+//    std::fstream file("src/highscore.txt", 	std::ios::in);
+//    int temp;
+//    while(file >> temp)
+//        high_score.push_back(temp);
+//    file.close();
+//    high_score.push_back(getScore());
+//    std::sort(high_score.begin(), high_score.end(), std::greater<int>());
+//    for(int i = 0; i < 5; i++)
+//        std::cout << high_score[i] << '\n';
+//    file.open("src/highscore.txt", std::ios::app);
+//    file << getScore() << '\n';
+//    std::cout << high_score.size() << '\n';
+//    std::cout << getScore() << '\n';
+//    std::cout << "Game over";
 //    SDL_Delay(2000);
 //    close();
-    file.close();
+//    file.close();
     return 0;
 }

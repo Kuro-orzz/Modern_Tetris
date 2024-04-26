@@ -35,5 +35,7 @@ int cur_level();
 bool isReturnTOMenu();
 bool isRestart();
 int getScore();
+void setScore(int num);
+void setClearedLine(int num);
 
 #endif // GAME_H
