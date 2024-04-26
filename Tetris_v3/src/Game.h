@@ -9,7 +9,6 @@
 #include "init.h"
 #include "gVar.h"
 #include "rotation.h"
-#include "collision.h"
 #define TILE_SIZE 35
 
 void initBlock();
@@ -37,5 +36,6 @@ bool isRestart();
 int getScore();
 void setScore(int num);
 void setClearedLine(int num);
+void settingForNewGame();
 
 #endif // GAME_H

@@ -207,10 +207,10 @@
 
 1712765150 source:d:\learning_sdl\tetris_v3\src\collision.cpp
 
-1714116322 source:d:\learning_sdl\tetris_v3\src\game.cpp
+1714145484 source:d:\learning_sdl\tetris_v3\src\game.cpp
 	"Game.h"
 
-1714116322 d:\learning_sdl\tetris_v3\src\game.h
+1714144748 d:\learning_sdl\tetris_v3\src\game.h
 	<SDL.h>
 	<vector>
 	<utility>
@@ -219,7 +219,6 @@
 	"init.h"
 	"gVar.h"
 	"rotation.h"
-	"collision.h"
 
 1712834752 d:\learning_sdl\tetris_v3\src\rotation.h
 	"block.h"
@@ -234,7 +233,7 @@
 1713957247 source:d:\learning_sdl\tetris_v3\src\line.cpp
 	"line.h"
 
-1714139678 source:d:\learning_sdl\tetris_v3\src\main.cpp
+1714145370 source:d:\learning_sdl\tetris_v3\src\main.cpp
 	"Game.h"
 	"gVar.h"
 	"menu.h"
@@ -252,7 +251,7 @@
 1712837014 source:d:\learning_sdl\tetris_v3\src\rotation.cpp
 	"rotation.h"
 
-1714138303 source:d:\learning_sdl\tetris_v3\src\init.cpp
+1714143163 source:d:\learning_sdl\tetris_v3\src\init.cpp
 	"init.h"
 
 1714069621 source:d:\learning_sdl\tetris_v3\src\menu.cpp
@@ -295,7 +294,7 @@
 
 1714102897 source:d:\learning_sdl\tetris_v3\src\highscore.inp.c
 
-1714139136 source:d:\learning_sdl\tetris_v3\src\highscore.cpp
+1714145426 source:d:\learning_sdl\tetris_v3\src\highscore.cpp
 	"highscore.h"
 
 1714136685 d:\learning_sdl\tetris_v3\src\highscore.h

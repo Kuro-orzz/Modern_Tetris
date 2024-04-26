@@ -17,26 +17,11 @@
 
 int main(int argc, char* argv[]){
     init();
-//    MainMusic = new Music("Sound/beat.mp3");
-//    MainMusic->PlayMusic(2);
-//    SDL_Delay(3000);
-//    SDL_RenderCopy( getRenderer(), getTexture(), NULL, NULL);
+    srand(time(NULL));
+    initBlock();
     Menu t;
     t.loadMenu();
-//    SDL_Rect button = {840, 10, 50, 50};
-//    SDL_RenderCopy( getRenderer(), getPauseButton(), NULL, &button);
-//    SDL_RenderPresent(getRenderer());
-//    waitUntilKeyPressed();
-//    t.showMenu();
-//    t.showMenu();
 
-//    SDL_SetRenderDrawColor(getRenderer(), 0, 0, 0, 255);
-//    SDL_Rect playPos = {340, 360, 574-340, 408-360};
-//    SDL_RenderFillRect(getRenderer(), &playPos);
-//    SDL_Rect quitPos = {340, 520, 574-340, 560-520};
-//    SDL_RenderFillRect(getRenderer(), &quitPos);
-
-//    SDL_RenderPresent(getRenderer());
     int level = 0;
     int tmp = level;
     auto showMenu = [&](){
@@ -50,7 +35,7 @@ int main(int argc, char* argv[]){
                     return 0;
                 int x, y;
                 SDL_GetMouseState(&x, &y);
-                std::cout << x << " " << y << '\n';
+//                std::cout << x << " " << y << '\n';
                 //play button
                 if(x > 340 && x < 574 && y > 360 && y < 408){
                     // Draw
@@ -69,6 +54,7 @@ int main(int argc, char* argv[]){
                         tmp = level;
                         setScore(0);
                         setClearedLine(0);
+                        settingForNewGame();
                         play = true;
                     }
                 }
@@ -94,6 +80,7 @@ int main(int argc, char* argv[]){
                             tmp = level;
                             setScore(0);
                             setClearedLine(0);
+                            settingForNewGame();
                             play = true;
                         }
                     }
@@ -152,18 +139,16 @@ int main(int argc, char* argv[]){
     };
 
     while(true){
-
         if(showMenu() == 0)
             return 0;
-    //    countDown();
-        srand(time(NULL));
-        initBlock();
+        countDown();
         while(!Game_over && !isQuit()){
             if(isRestart()){
                 level = tmp;
                 setScore(0);
                 setClearedLine(0);
-    //            countDown();
+                settingForNewGame();
+                countDown();
             }
             runGame(level);
             level = cur_level();
@@ -187,6 +172,7 @@ int main(int argc, char* argv[]){
         Game_over = false;
         setScore(0);
         setClearedLine(0);
+        settingForNewGame();
         for(int i = 0; i < 20; i++)
             for(int j = 0; j < 10; j++)
                 change_board(i, j, 0);

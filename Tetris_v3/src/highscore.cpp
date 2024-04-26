@@ -23,7 +23,7 @@ void show_cur_score(){
                 return;
             int x, y;
             SDL_GetMouseState(&x, &y);
-            std::cout << x << " " << y << '\n';
+//            std::cout << x << " " << y << '\n';
             // 416 502 478 563
             // home button
             if(x > 416 && x < 478 && y > 502 && y < 563){
@@ -84,7 +84,7 @@ void show_highscore(){
                 return;
             int x, y;
             SDL_GetMouseState(&x, &y);
-            std::cout << x << " " << y << '\n';
+//            std::cout << x << " " << y << '\n';
             // 20 20 60 60
             if(x > 20 && x < 60 && y > 20 && y < 60){
                 if(e.type == SDL_MOUSEBUTTONDOWN){

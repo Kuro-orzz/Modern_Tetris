@@ -4,7 +4,6 @@ int timerFPS, currentTime, lastTime, delta;
 int num_piece = -1;
 SDL_Rect rect;
 std::vector<std::pair<int, int>> prePos;
-//std::set<int> seven_bag_system;
 bool left, right, up, down, z, x, a, hard_drop, c, quit_game = false;
 int drop = 0;
 bool used_hold = false;
@@ -95,6 +94,8 @@ void hold_shape(){
 
 void draw_hold_shape(){
     //draw
+    if(!isHold)
+        return;
     SDL_Rect pos;
     for(int i=0; i<hold.size; i++) {
         for(int j=0; j<hold.size; j++) {
@@ -204,7 +205,6 @@ void check_move(){
     SDL_Event e;
     while(SDL_PollEvent(&e)) {
         if(e.type == SDL_QUIT){running = false; quit_game = true; return;}
-        // 840, 10, 50, 50
         int x, y;
         SDL_GetMouseState(&x, &y);
         if(((x > 840 && x < 890 && y > 10 && y < 60) && e.type == SDL_MOUSEBUTTONDOWN) || (e.type == SDLK_ESCAPE)){
@@ -215,7 +215,7 @@ void check_move(){
                     if( e.type == SDL_QUIT ){running = false; quit_game = true; return;}
                         int x, y;
                         SDL_GetMouseState(&x, &y);
-                        std::cout << x << " " << y << '\n';
+//                        std::cout << x << " " << y << '\n';
                         SDL_Rect pos = {300, 200, 400, 468};
                         SDL_RenderCopy(getRenderer(), getResume(), NULL, &pos);
                         SDL_RenderPresent(getRenderer());
@@ -348,13 +348,7 @@ void runGame(int start_level){
     currentTime = SDL_GetTicks();
     lastTime = currentTime;
     while(running) {
-//        currentTime = SDL_GetTicks();
-//        delta = currentTime - lastTime;
         SDL_RenderPresent(getRenderer());
-//        if(delta > 30){
-//            std::cout << 0 << '\n';
-//            lastTime = currentTime;
-//        }
         check_move();
         prePos.clear();
         renderPiece();
@@ -388,4 +382,14 @@ void setScore(int num){
 
 void setClearedLine(int num){
     cleared_line = num;
+}
+
+void settingForNewGame(){
+    quit_game = false;
+    isHold = false;
+    used_hold = false;
+    hold_piece_num = 0;
+    num_piece = -1;
+    seven_bag_system.clear();
+    next_piece.clear();
 }

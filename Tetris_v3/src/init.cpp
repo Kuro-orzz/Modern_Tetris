@@ -23,7 +23,7 @@ void init(){
     gFont = TTF_OpenFont("Font/VNI-Disney.ttf", 500);
 
     SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-    background = IMG_LoadTexture(gRenderer, "img_src/background0.jpg");
+    background = IMG_LoadTexture(gRenderer, "img_src/background.jpg");
     choose_level_background = IMG_LoadTexture(getRenderer(), "img_src/choose_level.png");
     Pause_button = IMG_LoadTexture(gRenderer, "img_src/Pause_Button.png");
     resume = IMG_LoadTexture(gRenderer, "img_src/resume.png");
